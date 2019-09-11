@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,qCAAqC",
+    "sources": [
+        "ProductTable.scss"
+    ],
+    "names": [],
+    "file": "ProductTable.css"
+}
