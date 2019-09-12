@@ -1,2 +1,14 @@
 /* todo: delete file if not needed */
+#sticky-footer {
+  -ms-flex-negative: none;
+      flex-shrink: none;
+  margin-top: 20px;
+}
+
+/* Other Classes for Page Styling */
+body {
+  background: #007bff;
+  background: -webkit-gradient(linear, left top, right top, from(#0062E6), to(#33AEFF));
+  background: linear-gradient(to right, #0062E6, #33AEFF);
+}
 /*# sourceMappingURL=Footer.css.map */

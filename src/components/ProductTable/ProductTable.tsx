@@ -5,7 +5,7 @@ import ProductRow from "../ProductRow";
 class ProductTable extends React.Component<MultiProductProp> {
   render() {
     const lines = this.props.products.map(item => (
-      <ProductRow key={item.categoryId} product={item} />
+      <ProductRow key={item.id} product={item} />
     ));
 
     return (

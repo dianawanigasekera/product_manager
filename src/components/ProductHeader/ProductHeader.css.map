@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,qCAAqC",
+    "sources": [
+        "ProductHeader.scss"
+    ],
+    "names": [],
+    "file": "ProductHeader.css"
+}

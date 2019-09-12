@@ -1,25 +1,27 @@
 import React from "react";
 import { Category } from "../../model/Category";
 import { Product } from "../../model/Product";
-
+const availableState = [
+  {
+    id: 1,
+    name: "Si"
+  },
+  {
+    id: 2,
+    name: "No"
+  }
+];
 interface CategoryProps {
   category: Category[];
 }
-
 interface ProductState {
-  product: Product[];
+  product: Product;
 }
 
 class AddProductForm extends React.Component<CategoryProps, ProductState> {
-  // state: ProductState;
-  constructor(props: CategoryProps) {
-    console.log(props);
-    super(props);
-    // this.state = {};
-  }
+  // state:ProductState;
 
   render() {
-    console.log(this.props.category);
     return (
       <>
         <h4>Enter a product into the Database:</h4>
@@ -52,6 +54,26 @@ class AddProductForm extends React.Component<CategoryProps, ProductState> {
               >
                 {this.props.category.map(category => (
                   <option key={category.categoryId}>{category.name}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+          <div className="form-group row">
+            <div className="col-sm-2">
+              <label>Available</label>
+            </div>
+            <div className="col-sm-4">
+              <select
+                className="form-control"
+                id="available"
+                onChange={e => {
+                  e.preventDefault();
+                  console.log(e.target.value);
+                  // this.setState({ available: "" });
+                }}
+              >
+                {availableState.map(available => (
+                  <option key={available.id}>{available.name}</option>
                 ))}
               </select>
             </div>
