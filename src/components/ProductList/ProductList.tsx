@@ -77,7 +77,7 @@ class ProductList extends React.Component {
     return (
       <div>
         <AddProductForm category={categoryType} />
-        <FilterableTable />
+        <FilterableTable products={products} />
       </div>
     );
   }

@@ -1,13 +1,15 @@
 import React from "react";
 import FilterBar from "../FilterBar";
 import ProductTable from "../ProductTable";
-import AddProductForm from "../AddProductForm";
+import { MultiProductProp } from "../../model/ProductProp";
 
-class FilterableTable extends React.Component {
+class FilterableTable extends React.Component<MultiProductProp> {
   render() {
+    console.log(this.props.products);
     return (
       <>
         <FilterBar />
+        <ProductTable products={this.props.products} />
       </>
     );
   }

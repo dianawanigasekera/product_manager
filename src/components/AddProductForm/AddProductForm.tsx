@@ -1,11 +1,23 @@
 import React from "react";
 import { Category } from "../../model/Category";
+import { Product } from "../../model/Product";
 
 interface CategoryProps {
   category: Category[];
 }
 
-class AddProductForm extends React.Component<CategoryProps> {
+interface ProductState {
+  product: Product[];
+}
+
+class AddProductForm extends React.Component<CategoryProps, ProductState> {
+  // state: ProductState;
+  constructor(props: CategoryProps) {
+    console.log(props);
+    super(props);
+    // this.state = {};
+  }
+
   render() {
     console.log(this.props.category);
     return (
@@ -20,7 +32,7 @@ class AddProductForm extends React.Component<CategoryProps> {
               <input
                 type="text"
                 className="form-control"
-                id="exampleInputEmail1"
+                id="name"
                 placeholder="Enter the product name"
               />
             </div>
@@ -30,10 +42,17 @@ class AddProductForm extends React.Component<CategoryProps> {
               <label>Category</label>
             </div>
             <div className="col-sm-4">
-              <select className="form-control" id="category">
-                {this.props.category.map(category => {
-                  <option key={category.categoryId}>{category.name}</option>;
-                })}
+              <select
+                className="form-control"
+                id="category"
+                onChange={e => {
+                  e.preventDefault();
+                  console.log(e.target.value);
+                }}
+              >
+                {this.props.category.map(category => (
+                  <option key={category.categoryId}>{category.name}</option>
+                ))}
               </select>
             </div>
           </div>
