@@ -28,12 +28,25 @@ class ProductRow extends React.Component<ProductProp> {
         <i style={{ color: "red" }} className="fa fa-times"></i>
       </span>
     );
+    const action_button = product.available ? (
+      <button type="button" className="btn btn-danger">
+        Remove
+      </button>
+    ) : (
+      <button type="button" className="btn btn-warning">
+        Order
+      </button>
+    );
     return (
       <tr>
         <td>{product.name}</td>
         <td>{this.renderCategoryName(product.categoryId)}</td>
         <td>{available}</td>
         <td>€ {product.price}</td>
+        <td>
+          {" "}
+          <td>{action_button}</td>
+        </td>
       </tr>
     );
   }
