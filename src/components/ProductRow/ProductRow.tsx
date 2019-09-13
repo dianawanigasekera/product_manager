@@ -16,6 +16,7 @@ class ProductRow extends React.Component<ProductProp> {
         return "Not classified";
     }
   }
+
   render() {
     const product = this.props.product;
     //check whether is available or not
@@ -29,13 +30,20 @@ class ProductRow extends React.Component<ProductProp> {
       </span>
     );
     const action_button = product.available ? (
-      <button type="button" className="btn btn-danger">
+      <button
+        type="button"
+        className="btn btn-danger"
+        onClick={() => this.props.onDelete(this.props.product.id)}
+        style={{ marginLeft: "2px" }}
+      >
         Remove
       </button>
     ) : (
-      <button type="button" className="btn btn-warning">
-        Order
-      </button>
+      <>
+        <button type="button" className="btn btn-warning">
+          Order
+        </button>
+      </>
     );
     return (
       <tr>
@@ -43,10 +51,7 @@ class ProductRow extends React.Component<ProductProp> {
         <td>{this.renderCategoryName(product.categoryId)}</td>
         <td>{available}</td>
         <td>€ {product.price}</td>
-        <td>
-          {" "}
-          <td>{action_button}</td>
-        </td>
+        <td>{action_button}</td>
       </tr>
     );
   }

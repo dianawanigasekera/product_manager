@@ -3,9 +3,16 @@ import { MultiProductProp } from "../../model/ProductProp";
 import ProductRow from "../ProductRow";
 
 class ProductTable extends React.Component<MultiProductProp> {
+  handleDelete = (id: number) => {
+    this.props.products.splice(
+      this.props.products.findIndex(obj => obj.id === id),
+      1
+    );
+    this.setState({ product: this.props.products });
+  };
   render() {
-    const lines = this.props.products.map(item => (
-      <ProductRow key={item.id} product={item} />
+    const rows = this.props.products.map(item => (
+      <ProductRow key={item.id} product={item} onDelete={this.handleDelete} />
     ));
 
     return (
@@ -17,9 +24,10 @@ class ProductTable extends React.Component<MultiProductProp> {
               <th>Category</th>
               <th>Available</th>
               <th>Price</th>
+              <th></th>
             </tr>
           </thead>
-          <tbody>{lines}</tbody>
+          <tbody>{rows}</tbody>
         </table>
       </>
     );
