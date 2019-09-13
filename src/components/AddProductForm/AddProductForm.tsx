@@ -19,7 +19,17 @@ interface ProductState {
 }
 
 class AddProductForm extends React.Component<CategoryProps, ProductState> {
-  // state:ProductState;
+  // constructor(props: CategoryProps) {
+  //   super(props);
+  //   this.state = [
+  //     {
+  //       name: "",
+  //       category: "",
+  //       price: "",
+  //       available: ""
+  //     }
+  //   ];
+  //}
 
   render() {
     return (
@@ -35,6 +45,11 @@ class AddProductForm extends React.Component<CategoryProps, ProductState> {
                   type="text"
                   className="form-control"
                   id="name"
+                  // value={this.state}
+                  // onChange={e => {
+                  //   console.log(e.target.value);
+                  //   this.setState({ name: e.target.value });
+                  // }}
                   placeholder="Enter the product name"
                 />
               </div>
@@ -93,7 +108,10 @@ class AddProductForm extends React.Component<CategoryProps, ProductState> {
             </div>
             <div className="form-group row">
               <div className="col-sm-11">
-                <button type="submit" className="btn btn-primary">
+                <button
+                  type="submit"
+                  className="btn btn-outline-primary my-2 my-sm-0"
+                >
                   Submit
                 </button>
               </div>

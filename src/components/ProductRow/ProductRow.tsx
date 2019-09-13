@@ -32,7 +32,7 @@ class ProductRow extends React.Component<ProductProp> {
     const action_button = product.available ? (
       <button
         type="button"
-        className="btn btn-danger"
+        className="btn btn-outline-danger my-2 my-sm-0"
         onClick={() => this.props.onDelete(this.props.product.id)}
         style={{ marginLeft: "2px" }}
       >
@@ -40,7 +40,7 @@ class ProductRow extends React.Component<ProductProp> {
       </button>
     ) : (
       <>
-        <button type="button" className="btn btn-warning">
+        <button type="button" className="btn btn-outline-warning my-2 my-sm-0">
           Order
         </button>
       </>
