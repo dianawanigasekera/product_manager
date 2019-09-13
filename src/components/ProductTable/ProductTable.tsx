@@ -10,7 +10,7 @@ class ProductTable extends React.Component<MultiProductProp> {
 
     return (
       <>
-        <table className="table table-striped">
+        <table className="table table-striped" style={{ marginBottom: "96px" }}>
           <thead className="thead-dark">
             <tr>
               <th>Name</th>

@@ -4,11 +4,8 @@ class Header extends React.Component {
   render() {
     return (
       <>
-        <nav
-          className="navbar navbar-light"
-          style={{ backgroundColor: "#e3f2fd" }}
-        >
-          Product Manager
+        <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
+          <h4 style={{ color: "#ffffff" }}> Product Manager</h4>
         </nav>
       </>
     );
