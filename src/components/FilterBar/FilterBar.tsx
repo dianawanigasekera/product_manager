@@ -1,13 +1,21 @@
 import React from "react";
-import { ProductState } from "../../model/ProductState";
 
-class FilterBar extends React.Component {
-  constructor(props: ProductState) {
+interface Props {
+  onChange: (filter: string) => void;
+}
+
+interface State {
+  filter: string;
+}
+
+class FilterBar extends React.Component<Props, State> {
+  constructor(props: Props) {
     super(props);
     this.state = {
-      name: ""
+      filter: "sa"
     };
   }
+
   render() {
     return (
       <div className="row">
@@ -20,18 +28,13 @@ class FilterBar extends React.Component {
                   type="search"
                   placeholder="Search"
                   aria-label="Search"
-                  // value={this.state.name}
-                  // onChange={e => {
-                  //   this.setState({ name: e.target.value });
-                  //   console.log(this.state.name);
-                  // }}
+                  value={this.state.filter}
+                  onChange={e => {
+                    const f = (e.target.value || "").toLowerCase();
+                    this.setState({ filter: f });
+                    this.props.onChange(f);
+                  }}
                 />
-                <button
-                  className="btn btn-outline-success my-2 my-sm-0"
-                  type="submit"
-                >
-                  Search
-                </button>
               </form>
             </nav>
           </div>

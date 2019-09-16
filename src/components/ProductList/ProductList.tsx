@@ -3,7 +3,8 @@ import AddProductForm from "../AddProductForm";
 import FilterableTable from "../FilterableTable";
 import { Product } from "../../model/Product";
 import { Category } from "../../model/Category";
-const products: Product[] = [
+
+const initialProducts: Product[] = [
   {
     id: 1,
     categoryId: 1,
@@ -80,12 +81,42 @@ const categoryType: Category[] = [
     name: "Monitor"
   }
 ];
-class ProductList extends React.Component {
+
+interface Props {}
+interface State {
+  products: Product[];
+}
+
+class ProductList extends React.Component<Props, State> {
+  constructor(props: State) {
+    super(props);
+    this.state = {
+      products: initialProducts
+    };
+  }
   render() {
     return (
       <div>
-        <AddProductForm category={categoryType} />
-        <FilterableTable products={products} />
+        <AddProductForm
+          category={categoryType}
+          onAddProduct={p => {
+            const products = this.state.products;
+            p.id =
+              1 +
+              products.reduce((maxId, p) => (p.id > maxId ? p.id : maxId), 0);
+            products.push(p);
+            this.setState({ products: products });
+            console.log("Added product", p);
+          }}
+        />
+        <FilterableTable
+          products={this.state.products}
+          onDelete={id =>
+            this.setState({
+              products: this.state.products.filter(p => p.id !== id)
+            })
+          }
+        />
       </div>
     );
   }

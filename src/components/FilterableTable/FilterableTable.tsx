@@ -1,14 +1,45 @@
 import React from "react";
 import FilterBar from "../FilterBar";
 import ProductTable from "../ProductTable";
-import { MultiProductProp } from "../../model/ProductProp";
+import { Product } from "../../model/Product";
 
-class FilterableTable extends React.Component<MultiProductProp> {
+interface Props {
+  products: Product[];
+  onDelete: (id: number) => void;
+}
+
+interface State {
+  filteredProducts?: Product[];
+}
+
+class FilterableTable extends React.Component<Props, State> {
+  constructor(props: Props) {
+    super(props);
+    this.state = {
+      filteredProducts: undefined
+    };
+  }
+
+  updateFilter(filter: string) {
+    if (filter) {
+      this.setState({
+        filteredProducts: this.props.products.filter(
+          p => p.name.toLowerCase().indexOf(filter) >= 0
+        )
+      });
+    } else {
+      this.setState({ filteredProducts: undefined });
+    }
+  }
+
   render() {
     return (
       <>
-        <FilterBar />
-        <ProductTable products={this.props.products} />
+        <FilterBar onChange={f => this.updateFilter(f)} />
+        <ProductTable
+          products={this.state.filteredProducts || this.props.products}
+          onDelete={this.props.onDelete}
+        />
       </>
     );
   }
