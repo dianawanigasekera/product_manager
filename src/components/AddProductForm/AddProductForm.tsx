@@ -33,15 +33,6 @@ class AddProductForm extends React.Component<
     };
   }
 
-  setDate() {
-    const date = new Date();
-    const dateToString = date.toLocaleString();
-    this.state = {
-      ...this.state,
-      date: dateToString
-    };
-  }
-
   render() {
     return (
       <div className="col-sm-8" style={{ padding: "40px" }}>
@@ -127,11 +118,9 @@ class AddProductForm extends React.Component<
                 className="btn btn-outline-primary my-2 my-sm-0"
                 onClick={e => {
                   e.preventDefault();
-                  this.setDate();
-                  this.props.onAddProduct({ ...this.state });
-                  this.setState({
+                  this.props.onAddProduct({
                     ...this.state,
-                    ...emptyProduct
+                    date: new Date().toLocaleDateString()
                   });
                 }}
               >

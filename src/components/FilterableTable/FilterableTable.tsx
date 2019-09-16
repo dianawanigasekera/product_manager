@@ -2,9 +2,11 @@ import React from "react";
 import FilterBar from "../FilterBar";
 import ProductTable from "../ProductTable";
 import { Product } from "../../model/Product";
+import { Category } from "../../model/Category";
 
 interface Props {
   products: Product[];
+  categories: Category[];
   onDelete: (id: number) => void;
 }
 
@@ -38,6 +40,7 @@ class FilterableTable extends React.Component<Props, State> {
         <FilterBar onChange={f => this.updateFilter(f)} />
         <ProductTable
           products={this.state.filteredProducts || this.props.products}
+          categories={this.props.categories}
           onDelete={this.props.onDelete}
         />
       </>

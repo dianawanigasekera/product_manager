@@ -1,26 +1,18 @@
 import React from "react";
 import { Product } from "../../model/Product";
+import { Category } from "../../model/Category";
 
 export interface Props {
   product: Product;
+  categories: Category[];
   onDelete: (id: number) => void;
 }
 
 class ProductRow extends React.Component<Props> {
-  // renderCategoryName(category: number) {
-  //   switch (category) {
-  //     case 1:
-  //       return "Computer";
-  //     case 2:
-  //       return "Cellulare";
-  //     case 3:
-  //       return "Tablet";
-  //     case 4:
-  //       return "Monitor";
-  //     default:
-  //       return "Not classified";
-  //   }
-  // }
+  getCategoryName(categoryId: number) {
+    const cat = this.props.categories.find(c => c.categoryId === categoryId);
+    return cat ? cat.name : "Not classified";
+  }
 
   render() {
     const product = this.props.product;
@@ -28,7 +20,7 @@ class ProductRow extends React.Component<Props> {
     return (
       <tr>
         <td>{product.name}</td>
-        <td>{product.categoryType}</td>
+        <td>{this.getCategoryName(product.categoryId)}</td>
         <td>{product.date}</td>
         <td>
           {product.available ? (

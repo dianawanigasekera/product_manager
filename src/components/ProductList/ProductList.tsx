@@ -8,7 +8,6 @@ const initialProducts: Product[] = [
   {
     id: 1,
     categoryId: 1,
-    categoryType: "Computer",
     price: 50,
     available: true,
     name: "Asus rog strix 1",
@@ -17,7 +16,6 @@ const initialProducts: Product[] = [
   {
     id: 2,
     categoryId: 2,
-    categoryType: "Phone",
     price: 450,
     available: true,
     name: "Iphone 6s",
@@ -26,7 +24,6 @@ const initialProducts: Product[] = [
   {
     id: 3,
     categoryId: 3,
-    categoryType: "Tablet",
     price: 150,
     available: false,
     name: "Samsung Tab E",
@@ -35,7 +32,6 @@ const initialProducts: Product[] = [
   {
     id: 4,
     categoryId: 4,
-    categoryType: "Monitor",
     price: 100,
     available: true,
     name: "AOC",
@@ -44,7 +40,6 @@ const initialProducts: Product[] = [
   {
     id: 5,
     categoryId: 1,
-    categoryType: "Computer",
     price: 50,
     available: true,
     name: "Asus rog strix 2",
@@ -53,7 +48,6 @@ const initialProducts: Product[] = [
   {
     id: 6,
     categoryId: 2,
-    categoryType: "Phone",
     price: 450,
     available: true,
     name: "Iphone X",
@@ -62,7 +56,6 @@ const initialProducts: Product[] = [
   {
     id: 7,
     categoryId: 3,
-    categoryType: "Tablet",
     price: 50,
     available: false,
     name: "Samsung Tab A",
@@ -71,7 +64,6 @@ const initialProducts: Product[] = [
   {
     id: 8,
     categoryId: 4,
-    categoryType: "Monitor",
     price: 100,
     available: true,
     name: "Samsung",
@@ -127,6 +119,7 @@ class ProductList extends React.Component<Props, State> {
         />
         <FilterableTable
           products={this.state.products}
+          categories={categoryType}
           onDelete={id =>
             this.setState({
               products: this.state.products.filter(p => p.id !== id)
