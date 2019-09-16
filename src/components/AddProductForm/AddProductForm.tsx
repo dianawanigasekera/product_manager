@@ -2,17 +2,6 @@ import React from "react";
 import { Category } from "../../model/Category";
 import { Product } from "../../model/Product";
 
-const availableState = [
-  {
-    id: 1,
-    name: "Yes"
-  },
-  {
-    id: 2,
-    name: "No"
-  }
-];
-
 interface AddProductFormProps {
   category: Category[];
   onAddProduct: (product: Product) => void;
@@ -26,8 +15,10 @@ const emptyProduct = {
   id: 0,
   name: "",
   categoryId: 1,
+  categoryType: "",
   price: 0,
-  available: false
+  available: false,
+  date: ""
 };
 
 class AddProductForm extends React.Component<
@@ -39,6 +30,15 @@ class AddProductForm extends React.Component<
     this.state = {
       ...emptyProduct,
       extraInfo: "ciao"
+    };
+  }
+
+  setDate() {
+    const date = new Date();
+    const dateToString = date.toLocaleString();
+    this.state = {
+      ...this.state,
+      date: dateToString
     };
   }
 
@@ -87,9 +87,21 @@ class AddProductForm extends React.Component<
           </div>
           <div className="form-group row">
             <div className="col-sm-2">
-              <label>Available</label>
+              <label className="form-check-label">Available</label>
             </div>
-            <div className="col-sm-4">TODO checkbox here</div>
+            <div className="col-sm-2">
+              <input
+                type="checkbox"
+                className="form-check-input"
+                checked={this.state.available}
+                onChange={e => {
+                  const target = e.target;
+                  const value =
+                    target.type === "checkbox" ? target.checked : target.value;
+                  this.setState({ available: Boolean(value) });
+                }}
+              />
+            </div>
           </div>
           <div className="form-group row">
             <div className="col-sm-2">
@@ -115,6 +127,7 @@ class AddProductForm extends React.Component<
                 className="btn btn-outline-primary my-2 my-sm-0"
                 onClick={e => {
                   e.preventDefault();
+                  this.setDate();
                   this.props.onAddProduct({ ...this.state });
                   this.setState({
                     ...this.state,

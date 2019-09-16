@@ -7,20 +7,20 @@ export interface Props {
 }
 
 class ProductRow extends React.Component<Props> {
-  renderCategoryName(category: number) {
-    switch (category) {
-      case 1:
-        return "Computer";
-      case 2:
-        return "Cellulare";
-      case 3:
-        return "Tablet";
-      case 4:
-        return "Monitor";
-      default:
-        return "Not classified";
-    }
-  }
+  // renderCategoryName(category: number) {
+  //   switch (category) {
+  //     case 1:
+  //       return "Computer";
+  //     case 2:
+  //       return "Cellulare";
+  //     case 3:
+  //       return "Tablet";
+  //     case 4:
+  //       return "Monitor";
+  //     default:
+  //       return "Not classified";
+  //   }
+  // }
 
   render() {
     const product = this.props.product;
@@ -28,7 +28,8 @@ class ProductRow extends React.Component<Props> {
     return (
       <tr>
         <td>{product.name}</td>
-        <td>{this.renderCategoryName(product.categoryId)}</td>
+        <td>{product.categoryType}</td>
+        <td>{product.date}</td>
         <td>
           {product.available ? (
             <i style={{ color: "#39ff14" }} className="fa fa-check"></i>

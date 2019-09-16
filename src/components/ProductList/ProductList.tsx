@@ -8,58 +8,74 @@ const initialProducts: Product[] = [
   {
     id: 1,
     categoryId: 1,
+    categoryType: "Computer",
     price: 50,
     available: true,
-    name: "Asus rog strix 1"
+    name: "Asus rog strix 1",
+    date: ""
   },
   {
     id: 2,
     categoryId: 2,
+    categoryType: "Phone",
     price: 450,
     available: true,
-    name: "Iphone 6s"
+    name: "Iphone 6s",
+    date: ""
   },
   {
     id: 3,
     categoryId: 3,
+    categoryType: "Tablet",
     price: 150,
     available: false,
-    name: "Samsung Tab E"
+    name: "Samsung Tab E",
+    date: ""
   },
   {
     id: 4,
     categoryId: 4,
+    categoryType: "Monitor",
     price: 100,
     available: true,
-    name: "AOC"
+    name: "AOC",
+    date: ""
   },
   {
     id: 5,
     categoryId: 1,
+    categoryType: "Computer",
     price: 50,
     available: true,
-    name: "Asus rog strix 2"
+    name: "Asus rog strix 2",
+    date: ""
   },
   {
     id: 6,
     categoryId: 2,
+    categoryType: "Phone",
     price: 450,
     available: true,
-    name: "Iphone X"
+    name: "Iphone X",
+    date: ""
   },
   {
     id: 7,
     categoryId: 3,
+    categoryType: "Tablet",
     price: 50,
     available: false,
-    name: "Samsung Tab A"
+    name: "Samsung Tab A",
+    date: ""
   },
   {
     id: 8,
     categoryId: 4,
+    categoryType: "Monitor",
     price: 100,
     available: true,
-    name: "Samsung"
+    name: "Samsung",
+    date: ""
   }
 ];
 

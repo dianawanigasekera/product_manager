@@ -15,6 +15,7 @@ class ProductTable extends React.Component<Props> {
           <tr>
             <th>Name</th>
             <th>Category</th>
+            <th>Date</th>
             <th>Available</th>
             <th>Price</th>
             <th></th>
