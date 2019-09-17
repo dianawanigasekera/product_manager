@@ -10,7 +10,7 @@ interface AddProductFormProps {
 interface AddProductFormState extends Product {
   extraInfo: string;
 }
-
+// empty Product
 const emptyProduct = {
   id: 0,
   name: "",
