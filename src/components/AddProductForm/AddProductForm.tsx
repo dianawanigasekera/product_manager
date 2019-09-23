@@ -1,6 +1,9 @@
 import React from "react";
 import { Category } from "../../model/Category";
 import { Product } from "../../model/Product";
+import { ApplicationState } from "../../store";
+import { connect } from "react-redux";
+import {addProduct} from "../../store/product/productActions"
 
 interface AddProductFormProps {
   category: Category[];
@@ -21,7 +24,7 @@ const emptyProduct = {
   date: ""
 };
 
-class AddProductForm extends React.Component<
+class AddProductFormComponent extends React.Component<
   AddProductFormProps,
   AddProductFormState
 > {
@@ -133,5 +136,19 @@ class AddProductForm extends React.Component<
     );
   }
 }
+
+
+function mapStateToProps(state: ApplicationState) {
+  return {
+  };
+}
+
+function mapDispatchToProps(dispatch: any) {
+  return {
+    onAddProduct: (p: Product) => dispatch(addProduct(p)), 
+  };
+}
+
+const AddProductForm = connect(mapStateToProps, mapDispatchToProps)(AddProductFormComponent);
 
 export default AddProductForm;

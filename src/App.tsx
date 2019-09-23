@@ -1,8 +1,10 @@
 import React from "react";
 import "./App.css";
 import Header from "./components/Header";
-import ProductList from "./components/ProductList";
+import ProductListContainer from "./components/ProductList";
 import Footer from "./components/Footer";
+import { Provider } from "react-redux";
+import { store } from "./store";
 
 const App: React.FC = () => {
   return (
@@ -10,7 +12,9 @@ const App: React.FC = () => {
       <Header />
       <div className="container">
         <div className="container-fluid">
-          <ProductList />
+          <Provider store={store}>
+            <ProductListContainer />
+          </Provider>
         </div>
       </div>
       <Footer />

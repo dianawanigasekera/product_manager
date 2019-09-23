@@ -3,18 +3,19 @@ import FilterBar from "../FilterBar";
 import ProductTable from "../ProductTable";
 import { Product } from "../../model/Product";
 import { Category } from "../../model/Category";
+import { connect } from "react-redux";
+import { ApplicationState } from "../../store";
 
 interface Props {
   products: Product[];
   categories: Category[];
-  onDelete: (id: number) => void;
 }
 
 interface State {
   filteredProducts?: Product[];
 }
 
-class FilterableTable extends React.Component<Props, State> {
+class FilterableTableComponent extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
@@ -41,11 +42,19 @@ class FilterableTable extends React.Component<Props, State> {
         <ProductTable
           products={this.state.filteredProducts || this.props.products}
           categories={this.props.categories}
-          onDelete={this.props.onDelete}
         />
       </>
     );
   }
 }
+
+
+function mapStateToProps(state: ApplicationState) {
+  return {
+    products: state.storage.products,
+  };
+}
+
+const FilterableTable = connect(mapStateToProps)(FilterableTableComponent);
 
 export default FilterableTable;

@@ -1,8 +1,7 @@
-import React from "react";
-import AddProductForm from "../AddProductForm";
-import FilterableTable from "../FilterableTable";
-import { Product } from "../../model/Product";
 import { Category } from "../../model/Category";
+import { ProductState, ProductActionTypes, ADD_PRODUCT, REMOVE_PRODUCT } from "./productType";
+import { Product } from "../../model/Product";
+
 
 const initialProducts: Product[] = [
   {
@@ -71,47 +70,28 @@ const initialProducts: Product[] = [
   }
 ];
 
-const categoryType: Category[] = [
-  {
-    categoryId: 1,
-    name: "Computer"
-  },
-  {
-    categoryId: 2,
-    name: "Phone"
-  },
-  {
-    categoryId: 3,
-    name: "Tablet"
-  },
-  {
-    categoryId: 4,
-    name: "Monitor"
-  }
-];
+const initialProductState: ProductState = { products: initialProducts };
 
-interface Props {}
-interface State {
-}
+export function productReducer(state = initialProductState, action: ProductActionTypes): ProductState {
+  switch (action.type) {
+    case ADD_PRODUCT:
+        const products = state.products;
+        const p = action.payload.product;
+        p.id =
+          1 +
+          products.reduce((maxId, p) => (p.id > maxId ? p.id : maxId), 0);
+        products.push(p);
+        console.log('lo sta richiamando',products);
+        return { products: products };
 
-class ProductList extends React.Component<Props, State> {
-  constructor(props: State) {
-    super(props);
-    this.state = {
-    };
-  }
-  render() {
-    return (
-      <div>
-        <AddProductForm
-          category={categoryType}
-        />
-        <FilterableTable
-          categories={categoryType}
-        />
-      </div>
-    );
-  }
-}
+    case REMOVE_PRODUCT:
+      return {
+        products: state.products.filter(p => p.id !== action.payload.id)
+      };
 
-export default ProductList;
+    default:
+      return state;
+  }
+};
+
+

@@ -2,6 +2,9 @@ import React from "react";
 import ProductRow from "../ProductRow";
 import { Product } from "../../model/Product";
 import { Category } from "../../model/Category";
+import { ApplicationState } from "../../store";
+import { connect } from "react-redux";
+import {removeProduct} from "../../store/product/productActions"
 
 interface Props {
   products: Product[];
@@ -9,7 +12,7 @@ interface Props {
   onDelete: (id: number) => void;
 }
 
-class ProductTable extends React.Component<Props> {
+class ProductTableComponent extends React.Component<Props> {
   render() {
     return (
       <table className="table table-striped" style={{ marginBottom: "96px" }}>
@@ -37,5 +40,18 @@ class ProductTable extends React.Component<Props> {
     );
   }
 }
+
+function mapStateToProps(state: ApplicationState) {
+  return {
+  };
+}
+
+function mapDispatchToProps(dispatch: any) {
+  return {
+    onDelete: (id: number) => dispatch(removeProduct(id)), 
+  };
+}
+
+const ProductTable = connect(mapStateToProps, mapDispatchToProps)(ProductTableComponent);
 
 export default ProductTable;
