@@ -7,6 +7,7 @@ export interface CategoryState {
 
 // actions
 export const ADD_CATEGORY = 'ADD_CATEGORY';
+export const GET_CATEGORY = 'GET_CATEGORY';
 
 export interface AddCategoryAction {
     type: typeof ADD_CATEGORY;
@@ -15,4 +16,11 @@ export interface AddCategoryAction {
     }
 }
 
-export type CategoryActionTypes = AddCategoryAction;
+export interface GetCategoryAction {
+    type: typeof GET_CATEGORY;
+    payload: {
+        category: Category;
+    }
+}
+
+export type CategoryActionTypes = AddCategoryAction | GetCategoryAction;

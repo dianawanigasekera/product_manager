@@ -140,6 +140,7 @@ class AddProductFormComponent extends React.Component<
 function mapStateToProps(state: ApplicationState) {
   return {
     products:state.storage.products,
+    category:state.categories.category
   };
 }
 

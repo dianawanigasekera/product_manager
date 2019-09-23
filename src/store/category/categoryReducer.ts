@@ -1,5 +1,5 @@
 
-import { CategoryState, ADD_CATEGORY, CategoryActionTypes } from "./categoryType";
+import { CategoryState, ADD_CATEGORY, GET_CATEGORY, CategoryActionTypes } from "./categoryType";
 import { Category } from "../../model/Category";
 import { ProductActionTypes } from "../product/productType";
 
@@ -28,15 +28,18 @@ const initialCategoryTypeState: CategoryState = { category: initialCategoryType 
 export function categoryReducer(state = initialCategoryTypeState, action: CategoryActionTypes): CategoryState {
   switch (action.type) {
     case ADD_CATEGORY:
-      const categoryList = state.category;
-      console.log(categoryList);
+      const categoryList = state.category.slice();
       const c = action.payload.category;
       c.categoryId = +1
       categoryList.reduce((maxId, c) => (c.categoryId > maxId ? c.categoryId : maxId), 0);
       categoryList.push(c);
-      console.log('categoryList', categoryList.slice());
       return { category: categoryList };
-  
+
+    case GET_CATEGORY:
+      const category = state.category
+      console.log(category)
+      return { category: category }
+
     default:
       return state;
   }

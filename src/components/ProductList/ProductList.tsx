@@ -105,7 +105,6 @@ class ProductList extends React.Component<Props, State> {
     return (
       <div>
         <AddProductForm
-          category={categoryType}
         />
         <AddCategoryForm
         category={categoryType}
