@@ -110,7 +110,6 @@ class ProductList extends React.Component<Props, State> {
         category={categoryType}
         />
         <FilterableTable
-          categories={categoryType}
         />
       </div>
     );

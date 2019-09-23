@@ -30,10 +30,12 @@ export function categoryReducer(state = initialCategoryTypeState, action: Catego
     case ADD_CATEGORY:
       const categoryList = state.category.slice();
       const c = action.payload.category;
-      c.categoryId = +1
-      categoryList.reduce((maxId, c) => (c.categoryId > maxId ? c.categoryId : maxId), 0);
+      const last_element = categoryList[categoryList.length - 1];
+      console.log(last_element.categoryId);
+      c.categoryId = last_element.categoryId +1
+      // categoryList.reduce((maxId, c) => (last_element.categoryId > maxId ? last_element.categoryId : maxId), 0);
       categoryList.push(c);
-      return { category: categoryList };
+      return { category: categoryList.slice() };
 
     case GET_CATEGORY:
       const category = state.category
