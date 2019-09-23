@@ -18,7 +18,6 @@ const emptyProduct = {
   id: 0,
   name: "",
   categoryId: 1,
-  categoryType: "",
   price: 0,
   available: false,
   date: ""
@@ -140,6 +139,7 @@ class AddProductFormComponent extends React.Component<
 
 function mapStateToProps(state: ApplicationState) {
   return {
+    products:state.storage.products,
   };
 }
 

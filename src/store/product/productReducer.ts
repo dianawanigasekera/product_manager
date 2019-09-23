@@ -75,14 +75,15 @@ const initialProductState: ProductState = { products: initialProducts };
 export function productReducer(state = initialProductState, action: ProductActionTypes): ProductState {
   switch (action.type) {
     case ADD_PRODUCT:
-        const products = state.products;
-        const p = action.payload.product;
-        p.id =
-          1 +
-          products.reduce((maxId, p) => (p.id > maxId ? p.id : maxId), 0);
-        products.push(p);
-        console.log('lo sta richiamando',products);
-        return { products: products };
+      const productsList = state.products.slice();
+      const p = action.payload.product;
+      p.id =
+        1 +
+        productsList.reduce((maxId, p) => (p.id > maxId ? p.id : maxId), 0);
+
+      productsList.push(p);
+      console.log('Sto aggiungendo prodotti', productsList);
+      return { products: productsList };
 
     case REMOVE_PRODUCT:
       return {

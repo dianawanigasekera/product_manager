@@ -1,5 +1,6 @@
 import React from "react";
 import AddProductForm from "../AddProductForm";
+import AddCategoryForm from "../AddCategoryForm";
 import FilterableTable from "../FilterableTable";
 import { Product } from "../../model/Product";
 import { Category } from "../../model/Category";
@@ -105,6 +106,9 @@ class ProductList extends React.Component<Props, State> {
       <div>
         <AddProductForm
           category={categoryType}
+        />
+        <AddCategoryForm
+        category={categoryType}
         />
         <FilterableTable
           categories={categoryType}

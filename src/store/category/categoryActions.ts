@@ -1,20 +1,11 @@
 import { Category } from "../../model/Category";
+import { AddCategoryAction, ADD_CATEGORY, CategoryActionTypes } from "./categoryType";
 
-export const initialCategoryType: Category[] = [
-    {
-      categoryId: 1,
-      name: "Computer"
+export function addCategory(category: Category): AddCategoryAction {
+  return {
+    type: ADD_CATEGORY,
+    payload: {
+        category: category,
     },
-    {
-      categoryId: 2,
-      name: "Phone"
-    },
-    {
-      categoryId: 3,
-      name: "Tablet"
-    },
-    {
-      categoryId: 4,
-      name: "Monitor"
-    }
-  ];
+  };
+}
