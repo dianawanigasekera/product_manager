@@ -8,7 +8,6 @@ import { addCategory } from "../../store/category/categoryActions"
 interface AddCategoryFormState extends Category { }
 
 interface AddCategoryFormProps {
-    category: Category[];
     onAddCategory: (category: Category) => void;
 }
 
@@ -75,7 +74,6 @@ export class AddCategoryFormComponent extends React.Component<
 
 function mapStateToProps(state: ApplicationState) {
     return {
-        categories: state.categories.category
     }
 }
 

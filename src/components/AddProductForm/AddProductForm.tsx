@@ -67,7 +67,6 @@ class AddProductFormComponent extends React.Component<
                 value={this.state.categoryId}
                 onChange={e => {
                   this.setState({ categoryId: Number(e.target.value) });
-                  console.log(e.target.value);
                 }}
               >
                 {this.props.category.map(category => (

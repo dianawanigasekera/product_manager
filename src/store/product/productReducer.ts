@@ -1,4 +1,3 @@
-import { Category } from "../../model/Category";
 import { ProductState, ProductActionTypes, ADD_PRODUCT, REMOVE_PRODUCT } from "./productType";
 import { Product } from "../../model/Product";
 
@@ -82,7 +81,6 @@ export function productReducer(state = initialProductState, action: ProductActio
         productsList.reduce((maxId, p) => (p.id > maxId ? p.id : maxId), 0);
 
       productsList.push(p);
-      console.log('Sto aggiungendo prodotti', productsList);
       return { products: productsList };
 
     case REMOVE_PRODUCT:

@@ -1,4 +1,3 @@
-import { Action } from "redux";
 import { Product } from "../../model/Product";
 
 
