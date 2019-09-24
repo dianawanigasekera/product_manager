@@ -5,7 +5,9 @@ import { connect } from "react-redux";
 import { addCategory } from "../../store/category/categoryActions"
 
 //interface per la form
-interface AddCategoryFormState extends Category { }
+interface AddCategoryFormState extends Category {
+    showMessage: boolean
+}
 
 interface AddCategoryFormProps {
     onAddCategory: (category: Category) => void;
@@ -13,7 +15,8 @@ interface AddCategoryFormProps {
 
 const emptyCategory = {
     categoryId: 0,
-    name: ""
+    name: "",
+    showMessage: false
 };
 
 export class AddCategoryFormComponent extends React.Component<
@@ -44,7 +47,7 @@ export class AddCategoryFormComponent extends React.Component<
                                 onChange={e => {
                                     this.setState({ name: e.target.value });
                                 }}
-                                placeholder="Enter the product name"
+                                placeholder="Enter the category name"
                             />
                         </div>
                     </div>
@@ -53,17 +56,25 @@ export class AddCategoryFormComponent extends React.Component<
                             <button
                                 type="submit"
                                 className="btn btn-outline-primary my-2 my-sm-0"
+                                disabled={!this.state.name}
                                 onClick={(e) => {
                                     e.preventDefault();
                                     this.props.onAddCategory({
                                         ...this.state
                                     })
+                                        this.setState({ showMessage: true })
+                                        setTimeout(() => this.setState({ showMessage: false }), 5000);
                                 }
                                 }
                             >
                                 Add Category
                         </button>
-                        </div>
+                            <div className="form-group row" style={{ marginTop: "20px" }}>
+                                <div className="col-sm-11">
+                                    {this.state.showMessage ? <div className="alert alert-success" role="alert">
+                                        Successfully added to the Product list!</div> : null}
+                                </div>
+                            </div></div>
                     </div>
 
                 </form>

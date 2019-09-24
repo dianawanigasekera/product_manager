@@ -31,9 +31,9 @@ export function categoryReducer(state = initialCategoryTypeState, action: Catego
       const c = action.payload.category;
       const last_element = categoryList[categoryList.length - 1];
       c.categoryId = last_element.categoryId +1
-      // categoryList.reduce((maxId, c) => (last_element.categoryId > maxId ? last_element.categoryId : maxId), 0);
+      // categoryList.reduce((maxId, c) => (last_element.categoryId > maxId ? last_element.categoryId : maxId), 0); 
       categoryList.push(c);
-      return { category: categoryList.slice() };
+      return { category: categoryList.slice() }
 
     default:
       return state;
