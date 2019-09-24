@@ -116,6 +116,7 @@ class AddProductFormComponent extends React.Component<
             <div className="col-sm-11">
               <button
                 type="submit"
+                disabled={!this.state.name || !this.state.price}
                 className="btn btn-outline-primary my-2 my-sm-0"
                 onClick={e => {
                   e.preventDefault();
