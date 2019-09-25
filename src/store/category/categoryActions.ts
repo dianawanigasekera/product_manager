@@ -1,11 +1,15 @@
 import { Category } from "../../model/Category";
-import { AddCategoryAction, ADD_CATEGORY} from "./categoryType";
 
-export function addCategory(category: Category): AddCategoryAction {
+
+export const ADD_CATEGORY = 'ADD_CATEGORY';
+
+export function addCategory(category: Category) {
   return {
-    type: ADD_CATEGORY,
+    type: ADD_CATEGORY as typeof ADD_CATEGORY,
     payload: {
         category: category,
     },
   };
 }
+
+export type CategoryActionTypes =  ReturnType<typeof addCategory>;

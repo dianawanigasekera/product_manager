@@ -1,7 +1,11 @@
 
-import { CategoryState, ADD_CATEGORY,CategoryActionTypes } from "./categoryType";
+import { ADD_CATEGORY,CategoryActionTypes } from "./categoryActions";
 import { Category } from "../../model/Category";
 
+
+export interface CategoryState {
+    category: Category[];
+}
 
 const initialCategoryType: Category[] = [
   {

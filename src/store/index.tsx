@@ -1,9 +1,6 @@
-import { categoryReducer } from "./category/categoryReducer";
+import {categoryReducer, CategoryState} from "./category/categoryReducer";
 import {productReducer, ProductState} from "./product/productReducer";
 import { combineReducers, createStore} from "redux";
-
-import { CategoryState } from "./category/categoryType";
-
 
 export interface ApplicationState {
   storage: ProductState,
