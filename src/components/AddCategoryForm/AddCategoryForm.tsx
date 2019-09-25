@@ -62,17 +62,17 @@ export class AddCategoryFormComponent extends React.Component<
                                     this.props.onAddCategory({
                                         ...this.state
                                     })
-                                        this.setState({ showMessage: true })
-                                        setTimeout(() => this.setState({ showMessage: false }), 5000);
+                                    this.setState({ showMessage: true })
+                                    setTimeout(() => this.setState({ showMessage: false }), 5000);
                                 }
                                 }
                             >
                                 Add Category
-                        </button>
+                            </button>
                             <div className="form-group row" style={{ marginTop: "20px" }}>
                                 <div className="col-sm-11">
                                     {this.state.showMessage ? <div className="alert alert-success" role="alert">
-                                        Successfully added to the Product list!</div> : null}
+                                        Successfully added to the category list!</div> : null}
                                 </div>
                             </div></div>
                     </div>

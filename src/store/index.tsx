@@ -1,7 +1,7 @@
 import { categoryReducer } from "./category/categoryReducer";
-import { productReducer } from "./product/productReducer";
+import {productReducer, ProductState} from "./product/productReducer";
 import { combineReducers, createStore} from "redux";
-import { ProductState } from "./product/productType";
+
 import { CategoryState } from "./category/categoryType";
 
 
