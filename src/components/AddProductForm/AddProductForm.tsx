@@ -25,7 +25,7 @@ const emptyProduct = {
     date: ""
 };
 
-class AddProductFormComponent extends React.Component<AddProductFormProps,
+export class AddProductFormComponent extends React.Component<AddProductFormProps,
     AddProductFormState> {
     constructor(props: AddProductFormProps) {
         super(props);
