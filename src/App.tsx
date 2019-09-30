@@ -4,11 +4,13 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { Provider } from "react-redux";
 import { store } from "./store";
-import {Switch, Route, Redirect} from "react-router-dom";
+import {Switch, Route} from "react-router-dom";
 import AddCategoryForm from "./components/AddCategoryForm/AddCategoryForm";
 import AddProductForm from "./components/AddProductForm/AddProductForm";
 import FilterableTable from "./components/FilterableTable/FilterableTable";
 import Home from "./components/Home/Home";
+import ProductCard from "./components/ProductCard/ProductCard";
+import ErrorComponent from "./components/ErrorComponent/Error";
 
 
 const App: React.FC = () => {
@@ -24,13 +26,15 @@ const App: React.FC = () => {
                                 <Route path="/add_category" component={AddCategoryForm} />
                                 <Route path="/add_product" component={AddProductForm} />
                                 <Route path="/product_list" component={FilterableTable} />
-                                <Redirect to="/" />
+                                <Route path="/product/:id" component={ProductCard} />
+                                {/*<Route path="/" component={ErrorComponent} />*/}
+
                             </Switch>
                         </div>
                     </Provider>
                 </div>
             </div>
-            <Footer />
+           {/* <Footer />*/}
         </div>
 
 

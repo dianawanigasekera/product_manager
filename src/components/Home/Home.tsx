@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 export class Home extends React.Component {
     render(){
         return(
-            <div className="jumbotron">
+            <div className="jumbotron" style={{marginTop:"200px"}}>
                 <h4 className="display-4">Welcome to Product Manager</h4>
                 <ul >
                     <li style={{listStyle:"none"}}>

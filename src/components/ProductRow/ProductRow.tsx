@@ -1,6 +1,7 @@
 import React from "react";
 import { Product } from "../../model/Product";
 import { Category } from "../../model/Category";
+import {Link} from "react-router-dom";
 
 export interface Props {
   product: Product;
@@ -19,7 +20,7 @@ class ProductRow extends React.Component<Props> {
 
     return (
       <tr>
-        <td>{product.name}</td>
+        <td><Link to={"/product/"+product.id}>{product.name}</Link></td>
         <td>{this.getCategoryName(product.categoryId)}</td>
         <td>{product.date}</td>
         <td>
