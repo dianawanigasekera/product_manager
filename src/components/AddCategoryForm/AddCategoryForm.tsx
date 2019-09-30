@@ -62,7 +62,10 @@ export class AddCategoryFormComponent extends React.Component<
                                     this.props.onAddCategory({
                                         ...this.state
                                     })
-                                    this.setState({ showMessage: true })
+                                    this.setState({
+                                        ...emptyCategory,
+                                        showMessage: true
+                                    })
                                     setTimeout(() => this.setState({ showMessage: false }), 5000);
                                 }
                                 }

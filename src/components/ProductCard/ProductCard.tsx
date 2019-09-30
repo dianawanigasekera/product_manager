@@ -20,7 +20,7 @@ class ProductCardComponent extends React.Component<Props>{
                         <div className="card-body">
                             <h5 className="card-title">{this.props.match!.params.id}</h5>
                             <p className="card-text">Name: {this.props.product!.name}</p>
-                            <h6 className="card-subtitle mb-2 text-muted">Category Type Id: {this.props.product!.categoryId}</h6>
+                            <h6 className="card-subtitle mb-2 text-muted">CategoryId: {this.props.product!.categoryId}</h6>
                             <h6 className="card-subtitle mb-2 text-muted">Price: € {this.props.product!.price}</h6>
                             <h6 className="card-subtitle mb-2 text-muted">Available in stock: {this.props.product!.available ? (
                                 <i style={{ color: "#39ff14" }} className="fa fa-check"></i>
@@ -37,7 +37,7 @@ class ProductCardComponent extends React.Component<Props>{
 
 function mapStateToProps(state: ApplicationState, ownProps:RouteChildrenProps<ThingWithId>) {
     const id = Number(ownProps.match!.params.id);
-    const productObj = state.storage.products.find(p => p.id === id);
+    const productObj =  state.storage.products.find(p => p.id === id);
     return {
         product:productObj
     };

@@ -27,7 +27,7 @@ const App: React.FC = () => {
                                 <Route path="/add_product" component={AddProductForm} />
                                 <Route path="/product_list" component={FilterableTable} />
                                 <Route path="/product/:id" component={ProductCard} />
-                                {/*<Route path="/" component={ErrorComponent} />*/}
+                                <Route component={ErrorComponent} />
 
                             </Switch>
                         </div>
