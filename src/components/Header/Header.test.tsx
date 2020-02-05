@@ -1,11 +1,11 @@
 import React from 'react';
-import {configure, shallow} from 'enzyme';
+import { configure, shallow, ShallowWrapper } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import Header from "./Header";
 
 configure({adapter: new Adapter()});
 describe('app and header', () => {
-    let header;
+    let header: ShallowWrapper;
 
     beforeEach(() => {
 

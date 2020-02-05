@@ -1,0 +1,167 @@
+[33mcommit ad38a31244d071c79620330e21a37df481e6f37c[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: your username <d.wanigasekera@k-tech.it>
+Date:   Wed Feb 5 15:16:31 2020 +0100
+
+    Configuration Jest and Enzyme + Test App, Header and ProductRow
+
+[33mcommit 82e7ff67e16ec91dbab696b3b76e666e200b7a00[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: dianawanigasekera <d.wanigasekera@k-tech.it>
+Date:   Mon Sep 30 17:11:08 2019 +0200
+
+    params routing 2
+
+[33mcommit 5b2de9d6470532e2e644e7b562ca8df3ad85fd05[m
+Author: dianawanigasekera <d.wanigasekera@k-tech.it>
+Date:   Mon Sep 30 16:32:51 2019 +0200
+
+    params routing
+
+[33mcommit 86cf3f7c0a3c065207c11d85e7d4d09520c140ba[m
+Author: dianawanigasekera <d.wanigasekera@k-tech.it>
+Date:   Thu Sep 26 17:15:17 2019 +0200
+
+    messages routing
+
+[33mcommit 8e1247d313133b7e8ba1a3ed04014eb46a0e0426[m
+Author: dianawanigasekera <d.wanigasekera@k-tech.it>
+Date:   Thu Sep 26 15:16:38 2019 +0200
+
+    routing
+
+[33mcommit 99431aaab96b633a2a3a2a8bcb7da692c5428bdd[m
+Author: dianawanigasekera <d.wanigasekera@k-tech.it>
+Date:   Wed Sep 25 12:18:20 2019 +0200
+
+    without type category
+
+[33mcommit 5e023145e0bd1869bddfdbf8bd643e9fa849a5f1[m
+Author: dianawanigasekera <d.wanigasekera@k-tech.it>
+Date:   Wed Sep 25 11:53:54 2019 +0200
+
+    without type
+
+[33mcommit ce7f6d4d777a6da9f02e2ac13fe7decb784ff910[m
+Author: Diana <d.wanigasekera@k-tech.it>
+Date:   Tue Sep 24 14:24:15 2019 +0200
+
+    disabled in AddProductForm
+
+[33mcommit 3e62f692ea5cdffb00c8a3eeca41b16dec9cd2bd[m
+Author: Diana <d.wanigasekera@k-tech.it>
+Date:   Tue Sep 24 14:19:24 2019 +0200
+
+    message
+
+[33mcommit 69d7a2abb0a596251647964bccabe77fd4d88ef4[m
+Author: Diana <d.wanigasekera@k-tech.it>
+Date:   Tue Sep 24 09:55:32 2019 +0200
+
+    remove console logs
+
+[33mcommit 874a48e7472280c2412bcef5c7e5252d86ec8c93[m
+Author: Diana <d.wanigasekera@k-tech.it>
+Date:   Mon Sep 23 16:52:07 2019 +0200
+
+    category type in FilterableTable and form
+
+[33mcommit 1628a01c4a4285eadaba0c708bc5ed5105c6155c[m
+Author: Diana <d.wanigasekera@k-tech.it>
+Date:   Mon Sep 23 16:19:34 2019 +0200
+
+    category completed
+
+[33mcommit 2798ebe26fded7c51b9598b6b2ae22ebb4c8454c[m
+Author: Diana <d.wanigasekera@k-tech.it>
+Date:   Mon Sep 23 16:04:18 2019 +0200
+
+    category
+
+[33mcommit 7b9c1809d0f868276e06100776422aec82c6fa4e[m
+Author: Diana <d.wanigasekera@k-tech.it>
+Date:   Mon Sep 23 11:28:59 2019 +0200
+
+    redux integration
+
+[33mcommit 2e111b5b7eb8cdb35ebf4676e5ec8303d696da2b[m
+Author: Diana <d.wanigasekera@k-tech.it>
+Date:   Tue Sep 17 14:24:23 2019 +0200
+
+    prova3
+
+[33mcommit 7e0e7ff2289d588c64939f0236e451ec07160c31[m
+Author: Diana <d.wanigasekera@k-tech.it>
+Date:   Tue Sep 17 14:23:36 2019 +0200
+
+    prova2
+
+[33mcommit 8fce0050eff32b740e980b6bd4ca967944cd0223[m
+Author: Diana <d.wanigasekera@k-tech.it>
+Date:   Tue Sep 17 14:15:51 2019 +0200
+
+    prova
+
+[33mcommit c1ee6cc0e718e1828b87f47b461b5d307a992338[m
+Author: dianawanigasekera <d.wanigasekera@k-tech.it>
+Date:   Mon Sep 16 16:34:08 2019 +0200
+
+    categories
+
+[33mcommit 0880ffab784f8dba268d38fda7dc3bbab0be9437[m
+Author: dianawanigasekera <d.wanigasekera@k-tech.it>
+Date:   Mon Sep 16 16:06:45 2019 +0200
+
+    commit
+
+[33mcommit def82f27de0c2c3e67fe382017520f96fb929e26[m
+Author: dianawanigasekera <d.wanigasekera@k-tech.it>
+Date:   Mon Sep 16 11:41:50 2019 +0200
+
+    filter
+
+[33mcommit 45afdfef788c4f3fa22edf587f43ee8037d48bcd[m
+Author: dianawanigasekera <d.wanigasekera@k-tech.it>
+Date:   Fri Sep 13 17:40:14 2019 +0200
+
+    fix
+
+[33mcommit 10970939f237b7cc0d6a715d0fe09be6118cc4a4[m
+Author: dianawanigasekera <d.wanigasekera@k-tech.it>
+Date:   Fri Sep 13 15:10:54 2019 +0200
+
+    delete
+
+[33mcommit a251a3478e2665855d03ca499d7b93e16ed3b26b[m
+Author: dianawanigasekera <d.wanigasekera@k-tech.it>
+Date:   Fri Sep 13 11:12:06 2019 +0200
+
+    action button
+
+[33mcommit 671f9acacff7dd0ae665b01281d0e7213fffdfcf[m
+Author: dianawanigasekera <d.wanigasekera@k-tech.it>
+Date:   Fri Sep 13 10:53:58 2019 +0200
+
+    css modified
+
+[33mcommit 7474e3f747ba0e8afa88e0b3e50b79b85330be97[m
+Author: dianawanigasekera <d.wanigasekera@k-tech.it>
+Date:   Thu Sep 12 17:47:51 2019 +0200
+
+    footer
+
+[33mcommit 1ffc7a7aaf2b82ab60d6a516e761e4f65c02d79c[m
+Author: dianawanigasekera <d.wanigasekera@k-tech.it>
+Date:   Thu Sep 12 16:13:40 2019 +0200
+
+    work in progress
+
+[33mcommit 977f7ae80f45f6e8b9ff5395faf24da1fd7fb0b3[m
+Author: dianawanigasekera <d.wanigasekera@k-tech.it>
+Date:   Wed Sep 11 17:41:55 2019 +0200
+
+    second
+
+[33mcommit 8e029455c94e84191ed2233eb9d2b40fb3bc3e40[m
+Author: dianawanigasekera <d.wanigasekera@k-tech.it>
+Date:   Wed Sep 11 11:04:48 2019 +0200
+
+    Initial commit from Create React App
