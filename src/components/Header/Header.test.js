@@ -1,43 +1,26 @@
 import React from 'react';
-import { shallow, render, mount } from 'enzyme';
-import Header from './Header';
+import {configure, shallow} from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+import Header from "./Header";
 
-describe('Header', () => {
-  let props;
-  let shallowHeader;
-  let renderedHeader;
-  let mountedHeader;
+configure({adapter: new Adapter()});
+describe('app and header', () => {
+    let header;
 
-  const shallowTestComponent = () => {
-    if (!shallowHeader) {
-      shallowHeader = shallow(<Header {...props} />);
-    }
-    return shallowHeader;
-  };
+    beforeEach(() => {
 
-  const renderTestComponent = () => {
-    if (!renderedHeader) {
-      renderedHeader = render(<Header {...props} />);
-    }
-    return renderedHeader;
-  };
+        header = shallow(<Header/>);
+    });
 
-  const mountTestComponent = () => {
-    if (!mountedHeader) {
-      mountedHeader = mount(<Header {...props} />);
-    }
-    return mountedHeader;
-  };  
+    it('The header should be a dark header ', () => {
+        header.find('.navbar navbar-expand-lg navbar-dark bg-dark').at(0);
+    });
 
-  beforeEach(() => {
-    props = {};
-    shallowHeader = undefined;
-    renderedHeader = undefined;
-    mountedHeader = undefined;
-  });
+    it('should render a button', () => {
+        expect(header.find('button')).toHaveLength(1);
+    });
 
-  // Shallow / unit tests begin here
- 
-  // Render / mount / integration tests begin here
-  
+    it(' should render for Link"', () => {
+        expect(header.find('button')).toHaveLength(1);
+    });
 });
