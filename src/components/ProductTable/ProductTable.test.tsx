@@ -31,6 +31,7 @@ describe('ProductRowTable', () => {
 	const mockCategories = [{categoryId: 1, name: 'Category 1'}, {categoryId: 2, name: 'Category 2'}];
 
 	beforeEach(() => {
+		// se si usa un mount si fa un afterEach e si fa unmount
 		productTable = shallow(
 			<Provider store={store}>
 				<ProductTable products={mockProduct} categories={mockCategories}/>
@@ -48,9 +49,4 @@ describe('ProductRowTable', () => {
 	it('should render a tr', () => {
 		productTable.find('tr').at(2);
 	});
-
-/*	it('should have six headers', () => {
-		const headers = productTable.find('th').first;
-		expect(headers.length).toEqual(1);
-	});*/
 });

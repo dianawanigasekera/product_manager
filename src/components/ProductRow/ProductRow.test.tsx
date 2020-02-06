@@ -1,7 +1,6 @@
 import React from 'react';
 import { configure, shallow, ShallowWrapper } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-
 import ProductRow from "./ProductRow";
 import { Product } from '../../model/Product';
 
@@ -58,7 +57,7 @@ describe('ProductRowTable', () => {
 
 });
 
-// con un deleteCount simulo un click
+// con un deleCount simulo un click
 fdescribe('ProductRowTable version 2', () => {
     let deleteCount = 0;
     let productRow: ShallowWrapper;

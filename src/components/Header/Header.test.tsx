@@ -41,10 +41,11 @@ describe('app and header', () => {
         expect(navLink.text()).toEqual('List');
     });
 
-/*    it(' should click on nav link Product', () => {
+    it(' should click on nav link Product', () => {
         const linkSpy = jest.fn();
+        linkSpy();
         const navLink = header.find('.nav-link').first();
         navLink.simulate('click');
         expect(linkSpy).toHaveBeenCalled();
-    });*/
+    });
 });
