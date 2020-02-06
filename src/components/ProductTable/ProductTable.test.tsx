@@ -1,10 +1,11 @@
 import React from 'react';
 import { configure, shallow, ShallowWrapper } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import { Product } from '../../model/Product';
-import ProductTable from './ProductTable';
 import { Provider } from 'react-redux';
 import { store } from '../../store';
+
+import { Product } from '../../model/Product';
+import ProductTable from './ProductTable';
 
 configure({adapter: new Adapter()});
 
@@ -49,7 +50,7 @@ describe('ProductRowTable', () => {
 	});
 
 /*	it('should have six headers', () => {
-		const headers = productTable.find('th');
-		expect(headers.length).toEqual(6);
+		const headers = productTable.find('th').first;
+		expect(headers.length).toEqual(1);
 	});*/
 });
