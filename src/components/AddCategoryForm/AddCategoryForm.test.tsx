@@ -1,5 +1,5 @@
 import React from 'react';
-import { configure, mount, ReactWrapper } from 'enzyme';
+import { configure, mount, ReactWrapper, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 import AddCategoryForm from "./AddCategoryForm";
@@ -7,7 +7,6 @@ import { store } from "../../store";
 import { Provider } from "react-redux";
 
 configure({adapter: new Adapter()});
-/*jest.useFakeTimers();*/
 
 describe('ProductRowTable', () => {
     let formWrapper: ReactWrapper;
@@ -38,11 +37,13 @@ describe('ProductRowTable', () => {
 
     it('should trigger submit button', () => {
         const submitSpy = jest.fn();
-        submit = formWrapper.find('button');
-        submitSpy();
+        const submit = shallow(<button onSubmit={submitSpy}/>)
         submit.simulate('submit');
-        formWrapper.update();
         expect(submitSpy).toHaveBeenCalled();
+    });
+
+    it('should render a disable button', () => {
+        expect(formWrapper.find('button').prop("disabled")).toBe(true);
     })
 });
 
