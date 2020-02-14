@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 class Header extends React.Component {
@@ -23,6 +23,9 @@ class Header extends React.Component {
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/product_list">List</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/register_form">Register</Link>
                             </li>
                         </ul>
                     </div>

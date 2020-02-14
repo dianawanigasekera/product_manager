@@ -11,6 +11,7 @@ import Home from "./components/Home/Home";
 import ProductCard from "./components/ProductCard/ProductCard";
 import ErrorComponent from "./components/ErrorComponent/Error";
 import React from "react";
+import { RegisterForm } from "./components/RegisterForm/RegisterForm";
 
 
 export class App extends React.Component {
@@ -27,6 +28,7 @@ export class App extends React.Component {
                                     <Route path="/add_category" component={AddCategoryForm}/>
                                     <Route path="/add_product" component={AddProductForm}/>
                                     <Route path="/product_list" component={FilterableTable}/>
+                                    <Route path="/register_form" component={RegisterForm}/>
                                     <Route path="/product/:id" component={ProductCard}/>
                                     <Route component={ErrorComponent}/>
                                 </Switch>

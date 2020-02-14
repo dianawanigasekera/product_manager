@@ -8,6 +8,8 @@ import { Provider } from "react-redux";
 
 configure({adapter: new Adapter()});
 
+jest.useFakeTimers();
+
 describe('ProductRowTable', () => {
     let formWrapper: ReactWrapper;
     let submit: ReactWrapper;
@@ -43,6 +45,22 @@ describe('ProductRowTable', () => {
     });
 
     it('should render a disable button', () => {
+        expect(formWrapper.find('button').prop("disabled")).toBe(true);
+    });
+
+    it('should enable button on name input ', () => {
+        expect(formWrapper.find('button').prop("disabled")).toBe(true);
+
+        const input = formWrapper.find('input');
+        input.simulate('change', {target: {value: 'abc'}});
+        formWrapper.update();
+
+        expect(formWrapper.find('button').prop("disabled")).toBe(false);
+
+        input.simulate('change', {target: {value: ''}});
+        // forza l'aggiornamento
+        formWrapper.update();
+
         expect(formWrapper.find('button').prop("disabled")).toBe(true);
     })
 });
