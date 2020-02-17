@@ -49,14 +49,17 @@ describe('ProductRowTable', () => {
     });
 
     it('should enable button on name input ', () => {
+        //the button has to be disabled on rendering
         expect(formWrapper.find('button').prop("disabled")).toBe(true);
 
         const input = formWrapper.find('input');
         input.simulate('change', {target: {value: 'abc'}});
         formWrapper.update();
 
+        //after simulation of an input it has to be active
         expect(formWrapper.find('button').prop("disabled")).toBe(false);
 
+        //whether an input value is empty the button will be disabled again
         input.simulate('change', {target: {value: ''}});
         // forza l'aggiornamento
         formWrapper.update();

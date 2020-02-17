@@ -1,5 +1,5 @@
 import React from 'react';
-import { configure, mount, ReactWrapper, shallow } from 'enzyme';
+import { configure, mount, ReactWrapper } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 import { store } from "../../store";
@@ -56,10 +56,19 @@ describe('AddProductForm', () => {
 		expect(productFormWrapper.find('button').prop('disabled')).toBe(true);
 	});
 
-	it('should check if the form is correctly populated to enable submit button', () => {
+/*	it('should check if the form is correctly populated to enable the submit button', () => {
+		const productnameInput = productFormWrapper.find('input').at(0);
+		const priceInput = productFormWrapper.find('input').at(2);
+		const available = productFormWrapper.find('.form-control').at(1);
+		const productSubmit = productFormWrapper.find('button');
 
-	})
+		expect(productSubmit.prop('disabled')).toBe(true);
 
+		available.simulate('change', {target: {value: true}});
+		productFormWrapper.update();
+
+		expect(productSubmit.prop('disabled')).toBe(false);
+	});*/
 
 })
 
