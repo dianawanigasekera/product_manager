@@ -6,6 +6,7 @@ import { addUser } from "../../store/user/userAction";
 
 //interface per la form
 interface RegisterFormProps {
+    users : User[];
 	addUser: (user: User) => void;
 }
 
@@ -32,35 +33,13 @@ export class RegisterFormComponent extends React.Component<RegisterFormProps, Re
 		}
 	}
 
-	// my Submit Button
-
-/*	onSubmit(e: any) {
-		e.preventDefault();
-		if (this.validate()) {
-			let fields: any = {};
-			fields['name'] = '';
-			this.setState({fields: fields});
-			alert('Form is submitted');
-		}
-	}*/
-
-	//my Validate form
-/*	validate() {
-		let fields: User = this.state;
-		let formIsValid = true;
-
-		if (!fields['name']) {
-			formIsValid = false;
-			const errors['name'] = "Please insert a name";
-		}
-
-		this.setState({errors: errors});
-		return formIsValid;
-	}*/
-
 
 	render() {
+        const p = this.props;
+        console.log(p.users);
 		const s = this.state;
+		const isValid = !s.name || !s.lastname || !s.age || !s.email || !s.password ? false : true;
+
 		return (
 			<div className="col-sm-8" style={{padding: "40px"}}>
 				<form name="userForm">
@@ -109,8 +88,7 @@ export class RegisterFormComponent extends React.Component<RegisterFormProps, Re
 								id="age"
 								value={s.age}
 								onChange={e => {
-									console.log(e.target);
-									/*this.setState({age: e.target.});*/
+									this.setState({age: Number(e.target.value)});
 								}}
 								placeholder="Age"
 							/>
@@ -157,18 +135,23 @@ export class RegisterFormComponent extends React.Component<RegisterFormProps, Re
 							<button
 								type="submit"
 								className="btn btn-outline-primary my-2 my-sm-0"
-								disabled={!this.state.name}
-								onClick={(e) => {
-									e.preventDefault();
-									setTimeout(() => this.setState({showMessage: false}), 5000);
-								}}
-							>
-								Register
-							</button>
+								disabled={!isValid}
+                                onClick={e => {
+                                    e.preventDefault();
+                                    p.addUser({
+                                        ...this.state,
+                                    });
+                                    this.setState({
+                                        ...user,
+                                        showMessage: true
+                                    });
+                                    setTimeout(() => this.setState({showMessage: false}), 5000);
+                                }}
+							>Register</button>
 							<div className="form-group row" style={{marginTop: "20px"}}>
 								<div className="col-sm-11">
 									{this.state.showMessage ? <div className="alert alert-success" role="alert">
-										Successfully added to the category list!</div> : null}
+										Successfully added to the users list!</div> : null}
 								</div>
 							</div>
 						</div>
@@ -180,7 +163,9 @@ export class RegisterFormComponent extends React.Component<RegisterFormProps, Re
 }
 
 function mapStateToProps(state: ApplicationState) {
-	return {}
+	return {
+	    users: state.userStorage.user
+	}
 }
 
 function mapDispatchToProps(dispatch: any) {

@@ -13,7 +13,15 @@ const initialUser: User[] = [
 		age: 10,
 		email: '',
 		password: ''
-	}
+	},
+		{
+		id: 2,
+		name: 'FirstUser2',
+		lastname: '',
+		age: 10,
+		email: '',
+		password: ''
+	},
 ];
 
 const initialUserTypeState: UserState = {user: initialUser};
