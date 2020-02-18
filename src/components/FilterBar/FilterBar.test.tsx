@@ -54,12 +54,5 @@ describe('FilterBar', () => {
 		filterBar.update();
 		productRow.update();
 
-
-		/*		expect(filterBarInput.props().value).toEqual('a');*/
 	});
-
-	/*	it('should change the state componentState componentDidMount ', () => {
-			expect(filterBar.state('componentState')).toEqual('mounted');
-		});*/
-
 });

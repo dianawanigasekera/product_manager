@@ -7,68 +7,69 @@ import { Provider } from "react-redux";
 import AddProductForm from './AddProductForm';
 
 configure({adapter: new Adapter()});
+jest.useFakeTimers();
+
 
 describe('AddProductForm', () => {
-	let productFormWrapper: ReactWrapper;
+	let formWrapper: ReactWrapper;
 
 	beforeEach(() => {
-		productFormWrapper = mount(
+		formWrapper = mount(
 			<Provider store={store}>
 				<AddProductForm/>
 			</Provider>);
 	});
 
 	afterEach(() => {
-		productFormWrapper.unmount();
+		formWrapper.unmount();
 	})
 
-})
-
-configure({adapter: new Adapter()});
-
-describe('AddProductForm', () => {
-	let productFormWrapper: ReactWrapper;
-
-	beforeEach(() => {
-		productFormWrapper = mount(
-			<Provider store={store}>
-				<AddProductForm/>
-			</Provider>);
-	});
-
-	afterEach(() => {
-		productFormWrapper.unmount();
-	});
 
 	it('should render one Form', () => {
-		expect(productFormWrapper.find('form')).toHaveLength(1);
+		expect(formWrapper.find('form')).toHaveLength(1);
 	});
 
 	it('should render labels', () => {
-		expect(productFormWrapper.find('label')).toHaveLength(4);
+		expect(formWrapper.find('label')).toHaveLength(4);
 	});
 
 	it('should render inputs', () => {
-		expect(productFormWrapper.find('input')).toHaveLength(3);
+		expect(formWrapper.find('input')).toHaveLength(3);
 	});
 
 	it('should render a submit button disabled', () => {
-		expect(productFormWrapper.find('button').prop('disabled')).toBe(true);
+		expect(formWrapper.find('button').prop('disabled')).toBe(true);
 	});
 
-/*	it('should check if the form is correctly populated to enable the submit button', () => {
-		const productnameInput = productFormWrapper.find('input').at(0);
-		const priceInput = productFormWrapper.find('input').at(2);
-		const available = productFormWrapper.find('.form-control').at(1);
-		const productSubmit = productFormWrapper.find('button');
+	it('Should check the form', () => {
+		expect(formWrapper.find('button').prop("disabled")).toBe(true);
 
-		expect(productSubmit.prop('disabled')).toBe(true);
+		const name = formWrapper.find('input').first();
+		const available = formWrapper.find('input').at(1)
+		const price = formWrapper.find('input').at(2);
+		const category = formWrapper.find('select');
 
+		name.simulate('change', {target: {value: 'abc'}});
+		category.simulate('change', {target: {value: '1'}});
+		price.simulate('change', {target: {value: '45'}});
 		available.simulate('change', {target: {value: true}});
-		productFormWrapper.update();
 
-		expect(productSubmit.prop('disabled')).toBe(false);
-	});*/
+		formWrapper.update();
 
+
+		expect(formWrapper.find('button').prop("disabled")).toBe(false);
+
+		name.simulate('change', {target: {value: ''}});
+		category.simulate('change', {target: {value: ''}});
+		price.simulate('change', {target: {value: ''}});
+		available.simulate('change', {target: {value: false}});
+
+		formWrapper.update();
+
+		expect(formWrapper.find('button').prop("disabled")).toBe(true);
+
+	})
 })
+
+
 
