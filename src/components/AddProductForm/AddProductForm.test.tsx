@@ -44,25 +44,27 @@ describe('AddProductForm', () => {
 	it('Should check the form', () => {
 		expect(formWrapper.find('button').prop("disabled")).toBe(true);
 
-		const name = formWrapper.find('input').first();
-		const available = formWrapper.find('input').at(1)
-		const price = formWrapper.find('input').at(2);
+		const name = formWrapper.find('#name');
 		const category = formWrapper.find('select');
+		const price = formWrapper.find('#price');
+		const available = formWrapper.find('#available');
+
 
 		name.simulate('change', {target: {value: 'abc'}});
-		category.simulate('change', {target: {value: '1'}});
-		price.simulate('change', {target: {value: '45'}});
+		category.simulate('change', {target: {value: 1}});
+		price.simulate('change', {target: {value: 45}});
 		available.simulate('change', {target: {value: true}});
 
 		formWrapper.update();
+
+		expect(formWrapper.find('#name').props().value).toEqual('abc');
+		expect(formWrapper.find('#category').props().value).toEqual(1);
+		expect(formWrapper.find('#price').props().value).toEqual(45);
 
 
 		expect(formWrapper.find('button').prop("disabled")).toBe(false);
 
 		name.simulate('change', {target: {value: ''}});
-		category.simulate('change', {target: {value: ''}});
-		price.simulate('change', {target: {value: ''}});
-		available.simulate('change', {target: {value: false}});
 
 		formWrapper.update();
 

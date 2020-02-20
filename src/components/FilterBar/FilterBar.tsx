@@ -26,6 +26,7 @@ class FilterBar extends React.Component<Props, State> {
                   <input
                       className="form-control mr-sm-2"
                       type="search"
+                      id="search"
                       placeholder="Search"
                       aria-label="Search"
                       value={this.state.filter}

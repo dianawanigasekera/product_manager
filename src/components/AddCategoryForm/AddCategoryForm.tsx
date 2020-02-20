@@ -42,7 +42,7 @@ export class AddCategoryFormComponent extends React.Component<
                             <input
                                 type="text"
                                 className="form-control"
-                                id="name"
+                                id="category"
                                 value={this.state.name}
                                 onChange={e => {
                                     this.setState({ name: e.target.value });

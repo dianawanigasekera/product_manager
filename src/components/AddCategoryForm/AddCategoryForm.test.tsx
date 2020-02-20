@@ -52,15 +52,18 @@ describe('ProductRowTable', () => {
         //the button has to be disabled on rendering
         expect(formWrapper.find('button').prop("disabled")).toBe(true);
 
-        const input = formWrapper.find('input');
-        input.simulate('change', {target: {value: 'abc'}});
+        const category = formWrapper.find('#category');
+        category.simulate('change', {target: {value: 'abc'}});
+
         formWrapper.update();
+        expect(formWrapper.find('#category').props().value).toEqual('abc');
+
 
         //after simulation of an input it has to be active
         expect(formWrapper.find('button').prop("disabled")).toBe(false);
 
         //whether an input value is empty the button will be disabled again
-        input.simulate('change', {target: {value: ''}});
+        category.simulate('change', {target: {value: ''}});
         // forza l'aggiornamento
         formWrapper.update();
 

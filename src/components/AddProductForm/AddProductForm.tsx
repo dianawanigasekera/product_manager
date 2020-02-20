@@ -85,6 +85,7 @@ export class AddProductFormComponent extends React.Component<AddProductFormProps
                         <div className="col-sm-2">
                             <input
                                 type="checkbox"
+                                id="available"
                                 className="form-check-input"
                                 checked={this.state.available}
                                 onChange={e => {
