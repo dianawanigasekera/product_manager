@@ -10,11 +10,16 @@ const initialUser: User[] = [
 		id: 1,
 		name: 'FirstUser',
 		email: '',
+		password: '',
+		repeatPassword: '',
 	},
 	{
 		id: 2,
 		name: 'FirstUser2',
 		email: '',
+		password: '',
+		repeatPassword: '',
+
 	},
 ];
 

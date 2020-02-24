@@ -12,6 +12,8 @@ const user: User = {
 	id: 0,
 	name: '',
 	email: '',
+	password: '',
+	repeatPassword: '',
 	showMessage: false,
 };
 
@@ -42,11 +44,32 @@ export class RegisterFormComponent extends React.Component<RegisterFormProps, Re
 		}
 
 		if (!user.email) {
-			errors.email = 'Please enter a valid e mail address.'
+			errors.email = 'Please enter an e mail address '
 		}
 
-		if (!user.email.match('/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$/')) {
-			errors.email = 'Please enter an e mail address.'
+		const m = user.email.match(/^[a-z0-9._-]+@[a-z0-9.-]+\.[a-z]{2,4}$/i);
+		if (!m) {
+			errors.email = 'Please enter a valid e mail address..'
+		}
+
+		if (!user.password) {
+			errors.password = 'Please enter a valid password..'
+		}
+
+		if (!user.password || !user.password.match(/^.*[a-z]$/)) {
+			errors.password = 'Please enter a secure password..'
+		}
+
+		if (!user.repeatPassword) {
+			errors.repeatPassword = 'Please enter a valid password..'
+		}
+
+		if (!user.repeatPassword || !user.repeatPassword.match(/^.*[a-z]$/)) {
+			errors.repeatPassword = 'Please enter a secure password..'
+		}
+
+		if(!(user.password === user.repeatPassword)) {
+			errors.repeatPassword = "Password doesn't match"
 		}
 
 		// controllo se l'elenco delle chiavi errors è vuoto per ripulire lo state
@@ -76,10 +99,6 @@ export class RegisterFormComponent extends React.Component<RegisterFormProps, Re
 
 	render() {
 		const s = this.state;
-		const p = this.props;
-		console.log('Users avalable on the list', p);
-
-		const isValid = !s.errors;
 
 		return (
 			<div className="col-sm-8" style={{padding: "40px"}}>
@@ -134,11 +153,56 @@ export class RegisterFormComponent extends React.Component<RegisterFormProps, Re
 						</div>
 					</div>
 					<div className="form-group row">
+						<div className="col-sm-2">
+							<label>Password:</label>
+						</div>
+						<div className="col-sm-4">
+							<input
+								type="password"
+								className="form-control"
+								id="password"
+								value={s.password}
+								onChange={e => {
+									this.setState({password: e.target.value});
+								}}
+								placeholder="Password"
+							/>
+						</div>
+						<div className="col-sm-11">
+							{s.errors && s.errors.password &&
+                            <div className="alert alert-danger" role="alert" style={{marginTop: '10px'}}>
+								{s.errors.password}</div>
+							}
+						</div>
+					</div>
+					<div className="form-group row">
+						<div className="col-sm-2">
+							<label>Repeat Password :</label>
+						</div>
+						<div className="col-sm-4">
+							<input
+								type="repeatPassword"
+								className="form-control"
+								id="repeatPassword"
+								value={s.repeatPassword}
+								onChange={e => {
+									this.setState({repeatPassword: e.target.value});
+								}}
+								placeholder="Password"
+							/>
+						</div>
+						<div className="col-sm-11">
+							{s.errors && s.errors.repeatPassword &&
+                            <div className="alert alert-danger" role="alert" style={{marginTop: '10px'}}>
+								{s.errors.repeatPassword}</div>
+							}
+						</div>
+					</div>
+					<div className="form-group row">
 						<div className="col-sm-11">
 							<button
 								type="submit"
 								className="btn btn-outline-primary my-2 my-sm-0"
-								disabled={!isValid}
 							>Register
 							</button>
 							<div className="form-group row" style={{marginTop: "20px"}}>
