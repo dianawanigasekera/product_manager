@@ -1,39 +1,33 @@
 import { User } from "../../model/User";
-import { ADD_USER, UserActionTypes } from './userAction';
+import { ADD_USER, UserActionTypes, SET_USER_DATA } from './userAction';
 
 export interface UserState {
-	user: User[];
+	userData: User[];
 }
 
-const initialUser: User[] = [
-	{
-		id: 1,
-		name: 'FirstUser',
-		email: '',
-		password: '',
-		repeatPassword: '',
-	},
-	{
-		id: 2,
-		name: 'FirstUser2',
-		email: '',
-		password: '',
-		repeatPassword: '',
+const initialState: UserState = {
+	userData: [],
+};
 
-	},
-];
+// const initialUserTypeState: UserState = {userData: initialState};
 
-const initialUserTypeState: UserState = {user: initialUser};
-
-export function userReducer(state = initialUserTypeState, action: UserActionTypes) {
+export function userReducer(
+	state = initialState,
+	action: UserActionTypes): UserState {
 	switch (action.type) {
+		case SET_USER_DATA:
+			const users = action.payload.users;
+			return {
+				...state,
+				userData: users
+			};
+
 		case ADD_USER:
-			const userList = state.user.slice();
+			const userList = state.userData;
+			const lastUserId = userList.length ? userList[userList.length - 1].id : 0;
 			const u = action.payload.user;
-			const last_user = userList[userList.length - 1];
-			u.id = last_user.id + 1;
-			userList.push(u);
-			return {user: userList.slice()}
+			u.id = lastUserId + 1;
+			return {userData: userList.concat([u])};
 
 		default:
 			return state;

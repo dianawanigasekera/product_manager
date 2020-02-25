@@ -3,6 +3,7 @@ import { ApplicationState } from "../../store";
 import { connect } from "react-redux";
 import { User } from '../../model/User';
 import { addUser } from "../../store/user/userAction";
+import { UserList } from '../UserList/UserList ';
 
 export interface Errors {
 	[key: string]: string;
@@ -68,7 +69,7 @@ export class RegisterFormComponent extends React.Component<RegisterFormProps, Re
 			errors.repeatPassword = 'Please enter a secure password..'
 		}
 
-		if(!(user.password === user.repeatPassword)) {
+		if (!(user.password === user.repeatPassword)) {
 			errors.repeatPassword = "Password doesn't match"
 		}
 
@@ -214,15 +215,13 @@ export class RegisterFormComponent extends React.Component<RegisterFormProps, Re
 						</div>
 					</div>
 				</form>
+				<UserList/>
 			</div>
 		)
 	}
 }
 
 function mapStateToProps(state: ApplicationState) {
-	return {
-		users: state.userStorage.user,
-	}
 }
 
 function mapDispatchToProps(dispatch: any) {
