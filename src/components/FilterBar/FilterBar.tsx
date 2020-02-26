@@ -35,7 +35,7 @@ class FilterBar extends React.Component<Props, State> {
                         this.setState({ filter: f });
                         this.props.onChange(f);
                       }}
-                  />s
+                  />
                 </form>
               </nav>
             </div>

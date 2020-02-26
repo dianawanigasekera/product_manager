@@ -38,7 +38,6 @@ describe('RegisterForm', () => {
 
 		formWrapper.update();
 		expect(formWrapper.find('#name').props().value).toEqual('Diana');
-		/*const nameError =*/
 	});
 });
 

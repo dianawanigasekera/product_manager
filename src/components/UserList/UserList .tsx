@@ -18,11 +18,9 @@ export class UserListComponent extends React.Component<UserListProps> {
 	private loadDataSubscription?: Subscription;
 
 	componentDidMount() {
-		console.log('UserListComponent initial', this.props.users);
 		this.loadDataSubscription = dataManager.loadUserList().subscribe(
 			u => {
 				this.props.setUsers(u);
-				console.log('u', this.props.users);
 			},
 		);
 	}
@@ -35,6 +33,7 @@ export class UserListComponent extends React.Component<UserListProps> {
 
 	render() {
 		const p = this.props.users;
+
 		return (
 			<table className="table table-striped" style={{marginBottom: "96px"}}>
 				<thead className="thead-dark">
@@ -43,12 +42,14 @@ export class UserListComponent extends React.Component<UserListProps> {
 					<th>Email</th>
 				</tr>
 				</thead>
-				{p.map(user => (
-					<tr>
+				<tbody>
+				{p.map((user) => (
+					<tr key={user.id}>
 						<td>{user.name}</td>
-						<td>{user.email}</td>
+						<td >{user.email}</td>
 					</tr>
 				))}
+				</tbody>
 			</table>
 		)
 	}
@@ -56,7 +57,7 @@ export class UserListComponent extends React.Component<UserListProps> {
 
 function mapStateToProps(state: ApplicationState) {
 	return {
-		users: state.userStorage.userData,
+		users: state.users.userData,
 	}
 }
 

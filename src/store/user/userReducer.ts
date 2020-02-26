@@ -27,7 +27,7 @@ export function userReducer(
 			const lastUserId = userList.length ? userList[userList.length - 1].id : 0;
 			const u = action.payload.user;
 			u.id = lastUserId + 1;
-			return {userData: userList.concat([u])};
+			return {userData: userList.concat([u])}; // concatena l'ultimo user con concat
 
 		default:
 			return state;

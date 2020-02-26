@@ -51,7 +51,7 @@ class FilterableTableComponent extends React.Component<Props, State> {
 
 function mapStateToProps(state: ApplicationState) {
   return {
-    products: state.storage.products,
+    products: state.products.products,
     categories: state.categories.category
   };
 }

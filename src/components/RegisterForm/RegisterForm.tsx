@@ -20,7 +20,6 @@ const user: User = {
 
 //interface per la form
 interface RegisterFormProps {
-	users: User[];
 	addUser: (user: User) => void;
 }
 
@@ -182,7 +181,7 @@ export class RegisterFormComponent extends React.Component<RegisterFormProps, Re
 						</div>
 						<div className="col-sm-4">
 							<input
-								type="repeatPassword"
+								type="password"
 								className="form-control"
 								id="repeatPassword"
 								value={s.repeatPassword}
@@ -222,6 +221,7 @@ export class RegisterFormComponent extends React.Component<RegisterFormProps, Re
 }
 
 function mapStateToProps(state: ApplicationState) {
+	return {}
 }
 
 function mapDispatchToProps(dispatch: any) {

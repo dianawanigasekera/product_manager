@@ -4,15 +4,15 @@ import {userReducer, UserState} from "./user/userReducer";
 import { combineReducers, createStore} from "redux";
 
 export interface ApplicationState {
-  storage: ProductState,
+  products: ProductState,
   categories: CategoryState,
-  userStorage: UserState,
+  users: UserState,
 }
 // combineReducers 
 export const reducers = combineReducers({
     categories: categoryReducer,
-    storage: productReducer,
-    userStorage: userReducer
+    products: productReducer,
+    users: userReducer
 })
 
 
