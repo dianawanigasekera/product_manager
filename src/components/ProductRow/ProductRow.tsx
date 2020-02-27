@@ -21,7 +21,7 @@ class ProductRow extends React.Component<Props> {
 
         return (
             <tr>
-                <td><a href={"/product/" + p.product}>{p.product.name}</a></td>
+                <td><a href={"/product/" + p.product.id}>{p.product.name}</a></td>
                 <td>{this.getCategoryName(p.product.categoryId)}</td>
                 <td>{p.product.date}</td>
                 <td>
