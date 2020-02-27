@@ -14,6 +14,8 @@ interface Props {
 
 class ProductTableComponent extends React.Component<Props> {
   render() {
+    const p = this.props;
+
     return (
       <table className="table table-striped" style={{ marginBottom: "96px" }}>
         <thead className="thead-dark">
@@ -27,12 +29,12 @@ class ProductTableComponent extends React.Component<Props> {
           </tr>
         </thead>
         <tbody>
-          {this.props.products.map(item => (
+          {p.products.map(item => (
             <ProductRow
               key={item.id}
               product={item}
-              categories={this.props.categories}
-              onDelete={this.props.onDelete}
+              categories={p.categories}
+              onDelete={p.onDelete}
             />
           ))}
         </tbody>
