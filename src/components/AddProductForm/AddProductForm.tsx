@@ -151,7 +151,7 @@ export class AddProductFormComponent extends React.Component<AddProductFormProps
 function mapStateToProps(state: ApplicationState) {
     return {
         products: state.products.products,
-        category: state.categories.category
+        category: state.categories.categories,
     };
 }
 

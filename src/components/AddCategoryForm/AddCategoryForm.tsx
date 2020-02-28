@@ -92,7 +92,7 @@ function mapStateToProps(state: ApplicationState) {
 }
 
 function mapDispatchToProps(dispatch: any) {
-    return {
+    return{
         onAddCategory: (c: Category) => dispatch(addCategory(c))
     }
 }

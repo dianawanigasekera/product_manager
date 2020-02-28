@@ -1,5 +1,8 @@
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { User } from '../../model/User';
+import { Category } from '../../model/Category';
+import { delay } from 'rxjs/operators';
+
 
 export class DataManager {
 
@@ -20,17 +23,27 @@ export class DataManager {
 		return userList;
 	}
 
-/*		loadUserList(): Observable<User[]> {
-		const mockData: User = {
-			id: 0,
-			name: 'Diana',
-			email: 'diana@domain.com',
-			password: 'asdasd',
-			repeatPassword: 'asdasd',
-		};
-		return of([mockData]).pipe(delay(500));
-	}*/
-
+	loadCategoriesList(): Observable<Category[]> {
+		const mockCategoryData: Category[] = [
+			{
+				categoryId: 1,
+				name: "Computer",
+			},
+			{
+				categoryId: 2,
+				name: "Phone",
+			},
+			{
+				categoryId: 3,
+				name: "Tablet",
+			},
+			{
+				categoryId: 4,
+				name: "Monitor",
+			},
+		];
+		return of(mockCategoryData).pipe(delay(500));
+	}
 }
 
 export const dataManager = new DataManager();

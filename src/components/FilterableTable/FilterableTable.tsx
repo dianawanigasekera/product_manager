@@ -5,10 +5,14 @@ import { Product } from "../../model/Product";
 import { Category } from "../../model/Category";
 import { connect } from "react-redux";
 import { ApplicationState } from "../../store";
+import { setCategoriesList } from '../../store/category/categoryActions';
+import { Subscription } from 'rxjs';
+import { dataManager } from '../../store/dataManager/dataManager';
 
 interface Props {
   products: Product[];
   categories: Category[];
+  setCategoriesList: (c: Category[]) => void;
 }
 
 interface State {
@@ -16,34 +20,52 @@ interface State {
 }
 
 class FilterableTableComponent extends React.Component<Props, State> {
+  private loadDataSubscription?: Subscription;
+
   constructor(props: Props) {
     super(props);
     this.state = {
-      filteredProducts: undefined
+      filteredProducts: undefined,
     };
+  }
+
+  componentDidMount() {
+    this.loadDataSubscription = dataManager.loadCategoriesList().subscribe(
+        c => {
+          this.props.setCategoriesList(c);
+        },
+    );
+  }
+
+  componentWillUnmount() {
+    if (this.loadDataSubscription) {
+      this.loadDataSubscription.unsubscribe();
+    }
   }
 
   updateFilter(filter: string) {
     if (filter) {
       this.setState({
         filteredProducts: this.props.products.filter(
-          p => p.name.toLowerCase().indexOf(filter) >= 0
-        )
+            p => p.name.toLowerCase().indexOf(filter) >= 0,
+        ),
       });
     } else {
-      this.setState({ filteredProducts: undefined });
+      this.setState({filteredProducts: undefined});
     }
   }
 
   render() {
+    const p = this.props;
+    const s = this.state;
     return (
-      <>
-        <FilterBar onChange={f => this.updateFilter(f)} />
-        <ProductTable
-          products={this.state.filteredProducts || this.props.products}
-          categories={this.props.categories}
-        />
-      </>
+        <>
+          <FilterBar onChange={f => this.updateFilter(f)}/>
+          <ProductTable
+              products={s.filteredProducts || p.products}
+              categories={p.categories}
+          />
+        </>
     );
   }
 }
@@ -52,10 +74,16 @@ class FilterableTableComponent extends React.Component<Props, State> {
 function mapStateToProps(state: ApplicationState) {
   return {
     products: state.products.products,
-    categories: state.categories.category
+    categories: state.categories.categories,
   };
 }
 
-const FilterableTable = connect(mapStateToProps)(FilterableTableComponent);
+function mapDispatchToProps(dispatch: any) {
+  return {
+    setCategoriesList: (c: Category[]) => dispatch(setCategoriesList(c)),
+  }
+}
+
+const FilterableTable = connect(mapStateToProps, mapDispatchToProps)(FilterableTableComponent);
 
 export default FilterableTable;

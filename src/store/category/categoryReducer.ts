@@ -1,44 +1,32 @@
-
-
-import { ADD_CATEGORY,CategoryActionTypes } from "./categoryActions";
+import { ADD_CATEGORY, CategoryActionTypes, SET_CATEGORIES_LIST } from "./categoryActions";
 import { Category } from "../../model/Category";
 
-
 export interface CategoryState {
-    category: Category[];
+  categories: Category[];
 }
 
-const initialCategoryType: Category[] = [
-  {
-    categoryId: 1,
-    name: "Computer"
-  },
-  {
-    categoryId: 2,
-    name: "Phone"
-  },
-  {
-    categoryId: 3,
-    name: "Tablet"
-  },
-  {
-    categoryId: 4,
-    name: "Monitor"
-  }
-];
+const initialState: CategoryState = {
+  categories: [],
+};
 
-const initialCategoryTypeState: CategoryState = { category: initialCategoryType };
-
-export function categoryReducer(state = initialCategoryTypeState, action: CategoryActionTypes): CategoryState {
+export function categoryReducer(
+    state = initialState,
+    action: CategoryActionTypes): CategoryState {
   switch (action.type) {
+    case SET_CATEGORIES_LIST:
+      const categories = action.payload.categories;
+      return {
+        ...state,
+        categories: categories,
+      };
     case ADD_CATEGORY:
-      const categoryList = state.category.slice();
-      const c = action.payload.category;
-      const last_element = categoryList[categoryList.length - 1];
-      c.categoryId = last_element.categoryId +1
-      // categoryList.reduce((maxId, c) => (last_element.categoryId > maxId ? last_element.categoryId : maxId), 0); 
-      categoryList.push(c);
-      return { category: categoryList.slice() }
+      const categoriesList = state.categories;
+      const lastCategoryId = categoriesList.length ? categoriesList[categoriesList.length - 1].categoryId : 0;
+      const c = action.payload.categories;
+      c.categoryId = lastCategoryId + 1;
+      return {
+        categories: categoriesList.concat([c]),
+      };
 
     default:
       return state;
